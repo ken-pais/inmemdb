@@ -1,42 +1,41 @@
 In-Memory Database/Cache
-
-Features:
+Features
 CRUD Operations:
-SET
-GET
-DEL
+SET: Add a key-value pair to the cache.
+GET: Retrieve a value by its key.
+DEL: Delete a key-value pair from the cache.
 Eviction Policies:
-Implements a FIFO (First In, First Out) eviction policy.
-You can extend it to add more policies like LRU (Least Recently Used), LFU (Least Frequently Used), etc.
+FIFO (First In, First Out): Items are evicted in the order they were inserted. You can extend this to add more policies such as:
+LRU (Least Recently Used)
+LFU (Least Frequently Used)
 TTL Support:
-Cache entries can expire based on a TTL (Time-to-Live).
+Cache entries can expire after a specified Time-to-Live (TTL).
 Clear Cache:
 Clears all data from the cache, resetting both the data map and the queue.
 Exposed APIs:
-Exposed APIs for testing purposes.
-Design Patterns:
+The cache provides exposed APIs for testing and interaction.
+Design Patterns
 Singleton Pattern:
 Ensures a single instance of the cache throughout the application's lifecycle.
-
 Factory Pattern:
-Used for creating eviction policy structs based on policy type.
-
+Used for creating eviction policy structs based on the policy type.
 Strategy Pattern:
-Used for implementing eviction policy logic based on policy type.
-
-Data Structures:
+Implements eviction policy logic based on the chosen policy type.
+Data Structures
 Queue:
+Keeps track of the order in which items are inserted into the database.
+Example:
 
-Keeps track of the order of items inserted into the database.
-plaintext
+lua
 Copy code
 +-----------+     +-----------+     +-----------+
-|    key1   | --> |    key2   | --> |    key3   |
+|   key1    | --> |   key2    | --> |   key3    |
 +-----------+     +-----------+     +-----------+
 Hashmap:
+Stores the actual data as key-value pairs.
+Example:
 
-Stores the actual data with key-value pairs.
-plaintext
+lua
 Copy code
 +-----------+     +-----------+     +-----------+     +-----------+
 |   key1    | --> |   key2    | --> |   key3    | --> |   key4    |
