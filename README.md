@@ -1,5 +1,4 @@
 # inmemdb
-/*
 In Memory Database/Cache
 Features:
 	- CRUD Operations 
@@ -25,4 +24,3 @@ Data structures:
 		|   key1    | --> |   key2    | --> |   key3    | --> |   key4    |
 		|   value1  |     |   value2  |     |   value3  |     |   value4  |
 		+-----------+     +-----------+     +-----------+     +-----------+
-*/
